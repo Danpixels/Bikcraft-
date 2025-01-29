@@ -1,17 +1,30 @@
 :root {
-  --fundo: #f7f7f7;
-  --texto: #c6c6c6;
-  --vermelho: #e21;
-  --vermelho-escuro: #900;
-  --branco: white;
-  --preto: black;
+  --cor-principal: #e21;
+  --principal-escuro: #900;
+  --fundo-1: #f7f7f7;
+  --fundo-2: white;
+  --texto: black;
+  --subtitulo: rgba(0, 0, 0, 0.2);
+  --onda: url(./img/onda.svg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cor-principal: #e21;
+    --principal-escuro: #900;
+    --fundo-1: #111111;
+    --fundo-2: #000000;
+    --texto: #ffffff;
+    --subtitulo: rgba(255, 255, 255, 0.2);
+    --onda: url(./img/onda_clara.svg);
+  }
 }
 
 body {
   font-size: 1.25rem;
   margin: 0px;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--fundo);
+  background-color: var(--fundo-1);
   display: grid;
   gap: 60px;
   justify-items: center;
@@ -56,29 +69,31 @@ p {
 
 .menu a {
   display: block;
-  background-color: var(--branco);
+  background-color: var(--fundo-2);
   padding: 15px 30px;
-  color: var(--preto);
+  color: var(--texto);
   border-radius: 4px;
 }
 
 .menu a:hover {
   padding: 13px 28px;
-  border: solid 2px var(--vermelho)
+  border: solid 2px var(--cor-principal)
 }
 
 .conteudo {
+  color: var(--texto);
   display: grid;
   grid-template-columns: 1fr 1fr;
   max-width: 1000px;
 }
 
 .introducao {
+  color: var(--texto);
   position: relative;
   padding: 40px;
   justify-content: center;
   flex-direction: column;
-  background-color: var(--branco);
+  background-color: var(--fundo-2);
   text-align: right;
   display: grid;
   align-content: center;
@@ -99,28 +114,28 @@ h1::after {
   display: block;
   width: 60px;
   height: 4px;
-  background: var(--vermelho);
+  background: var(--cor-principal);
 }
 
 .botao {
-  background-color: var(--vermelho);
-  color: var(--branco);
+  background-color: var(--cor-principal);
+  color: var(--texto);
   padding: 15px 30px;
   border-radius: 4px;
   text-transform: uppercase;
 }
 
 .botao:hover {
-  background-color: var(--vermelho-escuro);
+  background-color: var(--principal-escuro);
 }
 
 .subtitulo {
-  background-image: url(./img/onda.svg);
+  background-image: var(--onda);
 }
 
 h2 {
   font-size: 4rem;
-  color: var(--texto);
+  color: var(--subtitulo);
   text-transform: uppercase;
   text-align: right;
   align-content: center;
@@ -128,7 +143,7 @@ h2 {
 }
 
 .vantagens {
-  background-color: var(--branco);
+  background-color: var(--fundo-2);
   padding: 40px;
 }
 
@@ -138,11 +153,11 @@ h2 {
 }
 
 .vantagens li:nth-child(odd) {
-  background: var(--fundo);
+  background: var(--fundo-1);
 }
 
 .vantagensItem:hover {
-  border-left: solid 4px var(--vermelho);
+  border-left: solid 4px var(--cor-principal);
 }
 
 .vantagensItem {
@@ -157,10 +172,11 @@ h2 {
 }
 
 .rodape {
+  color: var(--texto);
   text-align: center;
   width: 100%;
   padding: 40px 0px;
-  background-color: var(--branco);
+  background-color: var(--fundo-2);
 }
 
 @media (max-width: 1000px) {
